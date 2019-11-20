@@ -41,7 +41,22 @@
 //  their length (i.e. no letters in the same positions).
 // - false if they aren't anagrams, or
 // - Their Hamming distance if they are anagrams with >=1 letter at the same index.
-
+bool isAnagram(String word1, String word2){
+  if(word1.length!=word2.length){
+    return false;
+  }
+  List word1List = word1.split('').toList();
+  List word2List = word2.split('').toList();
+  //balooon balloon
+  for(var item in word1List){
+    if(!word2List.remove(item)){
+      return false;
+    }
+  }
+  return true;
+}
 main() {
-  print(minRemovals("abcde", "cab"));
+  List a= [2,3,4];
+ print(minRemovals("sweet", "sweat"));
+  print(a.remove(5));
 }

@@ -2,14 +2,22 @@ import 'package:test/test.dart';
 import '../bin/main.dart';
 
 void main() {
-  test("test minRemovals", () {
-    expect(minRemovals("abcde", "cab") ,2);
-    expect(minRemovals("cat", "bat") ,1);
-    expect(minRemovals("", "") ,0);
-    expect(minRemovals("meet", "met") ,1);
-    expect(minRemovals("sweet", "sweat") ,2);
+  test("isAnagram", () {
+    expect(isAnagram("balooon", "balloon"), false);
+    expect(isAnagram("balloon", "balloon"), true);
+    expect(isAnagram("balloon", "balooon"), false);
+    expect(isAnagram("baloon", "balloon"), false);
+    expect(isAnagram("mad", "dam"), true);
+    expect(isAnagram("fact", "actf"), true);
   });
 
+ test("test minRemovals", () {
+   expect(minRemovals("abcde", "cab") ,2);
+   expect(minRemovals("cat", "bat") ,1);
+   expect(minRemovals("", "") ,0);
+   expect(minRemovals("meet", "met") ,1);
+   expect(minRemovals("sweet", "sweat") ,2);
+ });
 
 //  test("test minRemovals", () {
 //    expect(hamming("cat", "act") ,2);
@@ -18,4 +26,3 @@ void main() {
 //    expect(hamming("boat", "root") ,false);
 //  });
 }
-
