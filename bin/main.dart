@@ -4,7 +4,22 @@
 // two strings are anagrams of each other.
 //  Examples
 //  minRemovals("abcde", "cab") ➞ 2
-
+  int minRemovals(String word1, String word2){
+  List word1List = word1.split('').toList();
+//  word1List.sort();
+  List word2List = word2.split('').toList();
+//  word2List.sort();
+  print(word1List);
+  print(word2List);
+//  int count =0;
+  if(word1List.length>word2List.length){
+    word1List.removeWhere((item)=>word2List.contains(item));
+    return word1List.length;
+  }else{
+    word2List.removeWhere((item)=>word1List.contains(item));
+    return word2List.length;
+  }
+  }
 
 // Challenge 2
 // Farthest Hamming Anagrams
@@ -28,4 +43,5 @@
 // - Their Hamming distance if they are anagrams with >=1 letter at the same index.
 
 main() {
+  print(minRemovals("abcde", "cab"));
 }
