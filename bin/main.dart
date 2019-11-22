@@ -15,14 +15,15 @@ int minRemovals(String word1, String word2) {
 
   int count = 0;
   for (int i = 0; i < word1List.length; i++) {
-    if(word2List.contains(word1List[i])){
-      int removeIndex =word2List.indexWhere((element)=>element==(word1List[i]));
+    if (word2List.contains(word1List[i])) {
+      int removeIndex =
+          word2List.indexWhere((element) => element == (word1List[i]));
       word2List.removeAt(removeIndex);
-    }else{
+    } else {
       count++;
     }
   }
-  return count+word2List.length;
+  return count + word2List.length;
 }
 
 // Challenge 2
@@ -45,6 +46,30 @@ int minRemovals(String word1, String word2) {
 //  their length (i.e. no letters in the same positions).
 // - false if they aren't anagrams, or
 // - Their Hamming distance if they are anagrams with >=1 letter at the same index.
+
+dynamic ex3(String s1, String s2) {
+  //lets calculate hamming distance first
+  int hammingDistance = 0;
+  for (int i = 0; i < s1.length; i++) {
+    if (s1[i] == s2[i]) {
+      hammingDistance++;
+    }
+  }
+// - true if they are anagrams of each other and their Hamming distance is equal to
+//  their length (i.e. no letters in the same positions).
+  if (isAnagram(s1, s2) && hammingDistance == s1.length) {
+    return true;
+  }
+// - false if they aren't anagrams, or
+  if (!isAnagram(s1, s2)) {
+    return false;
+  }
+// Their Hamming distance if they are anagrams with >=1 letter at the same index.
+  if (isAnagram(s1, s2) && hammingDistance < s1.length) {
+    return hammingDistance;
+  }
+}
+
 bool isAnagram(String word1, String word2) {
   if (word1.length != word2.length) {
     return false;
@@ -61,11 +86,5 @@ bool isAnagram(String word1, String word2) {
 }
 
 main() {
-  // List a = [2, 3, 4];
-  // print(minRemovals("sweet", "sweat"));
-  // print(a.remove(5));
-  List a = ['m', 'e', 't'];
-  List b = ['m', 'e', 'e', 't'];
-  List c = [];
-  print(c);
+  print(ex3('read', 'read'));
 }
