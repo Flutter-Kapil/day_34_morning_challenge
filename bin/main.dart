@@ -7,33 +7,22 @@
 int minRemovals(String word1, String word2) {
   int word1length = word1.length;
   int word2length = word2.length;
-  if(word1length==0 || word2length ==0){
+  if (word1length == 0 || word2length == 0) {
     return 0;
   }
   List word1List = word1.split('').toList();
-  word1List.sort();
   List word2List = word2.split('').toList();
-  word2List.sort();
-  print(word1List);
-  print(word2List);
 
   int count = 0;
-  if (word1List.length > word2List.length) {
-    for (int i = 0; i < word1List.length; i++) {
-      word2List.retainWhere((char) => word1List.contains(char));
-      print('word1');
-      print(word2List);
-      count = word1length - word2List.length;
-      return count;
-    }
-  } else {
-    for (int i = 0; i < word1List.length; i++) {
-      word1List.retainWhere((char) => word2List.contains(char));
-      print(word1List);
-      count = word2length - word1List.length;
-      return count;
+  for (int i = 0; i < word1List.length; i++) {
+    if(word2List.contains(word1List[i])){
+      int removeIndex =word2List.indexWhere((element)=>element==(word1List[i]));
+      word2List.removeAt(removeIndex);
+    }else{
+      count++;
     }
   }
+  return count+word2List.length;
 }
 
 // Challenge 2
@@ -72,7 +61,11 @@ bool isAnagram(String word1, String word2) {
 }
 
 main() {
-  List a = [2, 3, 4];
-  print(minRemovals("sweet", "sweat"));
-  print(a.remove(5));
+  // List a = [2, 3, 4];
+  // print(minRemovals("sweet", "sweat"));
+  // print(a.remove(5));
+  List a = ['m', 'e', 't'];
+  List b = ['m', 'e', 'e', 't'];
+  List c = [];
+  print(c);
 }
