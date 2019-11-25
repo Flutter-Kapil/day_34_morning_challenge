@@ -21,10 +21,10 @@ void main() {
     expect(minRemovals('mississippi', 'pope'), 11);
   });
 
-//  test("test minRemovals", () {
-//    expect(hamming("cat", "act") ,2);
-//    expect(hamming("mood", "doom") ,2);
-//    expect(hamming("listen", "silent") ,5);
-//    expect(hamming("boat", "root") ,false);
-//  });
+ test("test minRemovals", () {
+   expect(validHamming("cat", "act") ,2);
+   expect(validHamming("mood", "doom") ,2);
+   expect(validHamming("listen", "silent") ,5);
+   expect(validHamming("boat", "root") ,false);
+ });
 }
